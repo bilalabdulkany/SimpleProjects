@@ -4,8 +4,8 @@ import java.io.IOException;
 
 public interface IWriter{
 		
-	public String applyFunction(String content) throws IOException;
+	public abstract String applyFunction(String content) throws IOException;
 	
-	public void close();
+	public abstract void close();
 	
 }

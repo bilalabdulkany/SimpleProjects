@@ -1,5 +1,7 @@
 package org.simpleproject.utils;
 
+import java.io.IOException;
+
 import org.simpleproject.IWriter;
 
 public class StringLowerCase extends IStringDecorator {
@@ -8,9 +10,8 @@ public class StringLowerCase extends IStringDecorator {
 		super(writer);		
 	}
 
-	public String applyFunction(String content) {
-		
-		return content.toUpperCase();		
+	public String applyFunction(String content) throws IOException {
+		return super.applyFunction(content).toUpperCase();			
 	}
 
 }

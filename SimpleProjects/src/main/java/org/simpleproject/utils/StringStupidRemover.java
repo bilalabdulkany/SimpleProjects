@@ -1,5 +1,6 @@
 package org.simpleproject.utils;
 
+import java.io.IOException;
 import java.util.StringTokenizer;
 
 import org.simpleproject.IWriter;
@@ -12,9 +13,9 @@ public class StringStupidRemover extends IStringDecorator {
 		
 	}
 
-	public String applyFunction(String content) {
+	public String applyFunction(String content) throws IOException {
 		//only lower case
-		return content.replaceAll("stupid", "s*****");				
+		return super.applyFunction(content).replaceAll("stupid", "s*****");				
 	}
 
 }

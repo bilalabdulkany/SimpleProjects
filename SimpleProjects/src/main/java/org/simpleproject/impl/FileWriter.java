@@ -14,8 +14,7 @@ public class FileWriter implements IWriter {
 		
 	}
 	public String applyFunction(String content) throws IOException {
-	
-		if(!isClosed) {
+			if(!isClosed) {
 		writer.write(content);
 		writer.flush();
 		}		

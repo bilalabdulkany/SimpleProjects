@@ -1,5 +1,6 @@
 package org.simpleproject.utils;
 
+import java.io.IOException;
 import java.util.StringTokenizer;
 
 import org.simpleproject.IWriter;
@@ -11,7 +12,7 @@ public class StringDuplicateRemover extends IStringDecorator {
 	 super(writer);
 	}
 
-	public String applyFunction(String content) {
+	public String applyFunction(String content) throws IOException {
 		//remove duplicates
 		StringTokenizer token= new StringTokenizer(content);
 		String currentElement="",nextElement;
@@ -23,7 +24,7 @@ public class StringDuplicateRemover extends IStringDecorator {
 			}
 			
 		}
-		return finalContent.toString();				
+		return super.applyFunction(finalContent.toString()).toString();				
 	}
 
 	public void write() {
