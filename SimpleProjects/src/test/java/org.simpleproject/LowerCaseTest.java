@@ -4,6 +4,7 @@ import org.junit.*;
 import org.simpleproject.impl.StringWriter;
 import org.simpleproject.utils.StringUpperCase;
 
+
 import java.io.IOException;
 
 public class LowerCaseTest {
