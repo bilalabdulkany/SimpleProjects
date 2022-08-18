@@ -1,17 +1,24 @@
 package org.simpleproject.utils;
 
-import java.io.IOException;
-
 import org.simpleproject.IWriter;
 
-public class StringLowerCase extends IStringDecorator {
-	
-	public StringLowerCase(IWriter writer) {
-		super(writer);		
-	}
+import java.io.IOException;
 
-	public String applyFunction(String content) throws IOException {
-		return super.applyFunction(content).toUpperCase();			
-	}
+public class StringLowerCase extends IStringDecorator {
+
+    public StringLowerCase(IWriter writer) {
+        super(writer);
+    }
+
+    public StringLowerCase() {
+        super();
+    }
+
+    @Override
+    public String writeFunction(String content) throws IOException {
+        finalContent = this._writer!=null?_writer.write(content):content;
+        finalContent = finalContent.toLowerCase();
+        return finalContent;
+    }
 
 }

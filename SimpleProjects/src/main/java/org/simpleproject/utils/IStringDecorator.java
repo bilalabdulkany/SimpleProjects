@@ -6,18 +6,41 @@ import org.simpleproject.IWriter;
 
 public abstract class IStringDecorator implements IWriter {
 	
-	public final IWriter _writer;
-	public boolean IsClosed;
-	
-	
+	final IWriter _writer;
+	String finalContent="";
+	private boolean IsClosed;
+
 	public IStringDecorator(IWriter writer) {
 		this._writer=writer;
-		
+
+	}
+	public IStringDecorator() {
+		this._writer=null;
 	}
 
-	public String applyFunction(String content) throws IOException {
-		return _writer.applyFunction(content);
+
+	public boolean isClosed() {
+		return IsClosed;
 	}
+
+	public void setClosed(boolean closed) {
+		IsClosed = closed;
+	}
+	@Override
+	public String getContent() {
+		return finalContent;
+	}
+
+	@Override
+	public void setContent(String content) {
+		this.finalContent = content;
+	}
+
+	public String write(String content) throws IOException {
+		return this.writeFunction(content);
+	}
+
+	public abstract String writeFunction(String content) throws IOException;
 	
 	public void close() {
 	 this._writer.close();		

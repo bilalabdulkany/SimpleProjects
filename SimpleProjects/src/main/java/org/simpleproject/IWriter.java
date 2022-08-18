@@ -4,8 +4,10 @@ import java.io.IOException;
 
 public interface IWriter{
 		
-	public abstract String applyFunction(String content) throws IOException;
-	
-	public abstract void close();
+	String write(String content) throws IOException;
+	void close();
+
+	String getContent();
+	void setContent(String content);
 	
 }

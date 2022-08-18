@@ -1,17 +1,23 @@
 package org.simpleproject.utils;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import org.simpleproject.IWriter;
 
 public class StringUpperCase extends IStringDecorator {
-	
 	public StringUpperCase(IWriter writer) {
-		super(writer);		
+		super(writer);
 	}
 
-	public String applyFunction(String content) throws IOException {		
-		return super.applyFunction(content).toLowerCase();		
+	public StringUpperCase() {
+		super();
 	}
-
+	@Override
+	public String writeFunction(String content) throws IOException {
+		finalContent = this._writer!=null?_writer.write(content):content;
+		finalContent = finalContent.toUpperCase();
+		System.out.println(finalContent);
+		return finalContent;
+	}
 }

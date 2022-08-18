@@ -11,24 +11,28 @@ public class StringDuplicateRemover extends IStringDecorator {
 	public StringDuplicateRemover(IWriter writer) {
 	 super(writer);
 	}
+	public StringDuplicateRemover(){}
 
-	public String applyFunction(String content) throws IOException {
+	@Override
+	public String writeFunction(String content) throws IOException {
+
+		finalContent = this._writer!=null?_writer.write(content):content;
 		//remove duplicates
-		StringTokenizer token= new StringTokenizer(content);
+		StringTokenizer token= new StringTokenizer(finalContent);
 		String currentElement="",nextElement;
-		StringBuilder finalContent=new StringBuilder();
+		StringBuilder stringBuilder=new StringBuilder();
 		while(token.hasMoreElements()) {
-			if(!currentElement.equals(nextElement=token.nextElement().toString()))
+			nextElement= token.nextToken();
+			if(!currentElement.equals(nextElement))
 			{
-				finalContent.append(currentElement+nextElement);
+				stringBuilder.append(currentElement+" ");
+				currentElement=nextElement;
 			}
-			
 		}
-		return super.applyFunction(finalContent.toString()).toString();				
-	}
-
-	public void write() {
-				
+		stringBuilder.append(currentElement);
+		finalContent=stringBuilder.toString();
+		System.out.println(finalContent);
+		return finalContent;
 	}
 
 }
