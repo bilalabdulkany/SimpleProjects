@@ -1,11 +1,16 @@
 
 In order to test:
 
-IWriter stringWriter=new StringWriter(new StringLowerCase());
+       IWriter stringWriter=new StringWriter(new StringLowerCase());
+
        stringWriter.write("THIS IS SIMPLE ssss SSssS!!");
+       
        System.out.println(stringWriter.getContent());
+       
        stringWriter.close();
+       
        System.out.println("----After Closing");
+       
        stringWriter.write("ABCHDHaaa aAaaaa stupid stupid!!");
 
        System.out.println(stringWriter.getContent());
